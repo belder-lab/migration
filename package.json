@@ -1,0 +1,21 @@
+{
+  "name": "node-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fastup-kit/node-backend.git",
+  "author": "luchanso <luchansodev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "migration": "cross-env NODE_OPTIONS=--enable-source-maps knex migrate:latest --knexfile build/knexfile.js"
+  },
+  "dependencies": {
+    "knex": "0.95.10",
+    "pg": "8.7.1",
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.6",
+    "cross-env": "7.0.3"
+  }
+}
