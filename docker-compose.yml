@@ -4,22 +4,29 @@ services:
     build:
       context: .
     environment:
-      PG_CONNECTION_STRING: "postgres://postgres:password@db"
-    depends_on:
-      - db
-  db:
-    container_name: postgres-database
-    image: postgres:13.4-alpine
-    environment:
-      POSTGRES_PASSWORD: password
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-        reservations:
-          memory: 256M
-  adminer:
-    image: adminer
-    ports:
-      - 8080:8080
+      PG_CONNECTION_STRING: "postgres://pg:qwe@db/db"
+    networks:
+      - app
+  # For debug
+  #   depends_on:
+  #     - db
+  # db:
+  #   container_name: postgres-database
+  #   image: postgres:13.4-alpine
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 256M
+  #       reservations:
+  #         memory: 256M
+  # adminer:
+  #   image: adminer
+  #   ports:
+  #     - 8080:8080
+networks:
+  app:
+    external: true
+    name: app
 
