@@ -17,5 +17,5 @@ USER migration-user
 
 WORKDIR /app
 
-COPY --chown=node-app:node-group --from=builder ./app ./
+COPY --chown=migration-user:migration-group --from=builder ./app ./
 CMD yarn migration
